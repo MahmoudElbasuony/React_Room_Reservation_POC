@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Integrant.MRR.Core\Integrant.MRR.Core.csproj" />
+    <ProjectReference Include="..\Integrant.MRR.DAL\Integrant.MRR.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

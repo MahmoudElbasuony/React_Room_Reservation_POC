@@ -1,0 +1,11 @@
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\bin\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.deps.json
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\bin\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.runtimeconfig.json
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\bin\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.runtimeconfig.dev.json
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\bin\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.dll
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\obj\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.csprojResolveAssemblyReference.cache
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\obj\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\obj\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.AssemblyInfoInputs.cache
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\obj\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.AssemblyInfo.cs
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\bin\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.pdb
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\obj\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.dll
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.WebAPI\obj\Debug\netcoreapp2.0\Integrant.MRR.WebAPI.pdb

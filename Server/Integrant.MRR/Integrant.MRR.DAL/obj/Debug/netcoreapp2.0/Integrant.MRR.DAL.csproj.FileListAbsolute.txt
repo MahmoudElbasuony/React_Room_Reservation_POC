@@ -1,0 +1,11 @@
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\bin\Debug\netcoreapp2.0\Integrant.MRR.DAL.deps.json
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\bin\Debug\netcoreapp2.0\Integrant.MRR.DAL.dll
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\obj\Debug\netcoreapp2.0\Integrant.MRR.DAL.csprojResolveAssemblyReference.cache
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\obj\Debug\netcoreapp2.0\Integrant.MRR.DAL.csproj.CoreCompileInputs.cache
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\obj\Debug\netcoreapp2.0\Integrant.MRR.DAL.AssemblyInfoInputs.cache
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\obj\Debug\netcoreapp2.0\Integrant.MRR.DAL.AssemblyInfo.cs
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\bin\Debug\netcoreapp2.0\Integrant.MRR.DAL.pdb
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\bin\Debug\netcoreapp2.0\Integrant.MRR.Core.dll
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\bin\Debug\netcoreapp2.0\Integrant.MRR.Core.pdb
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\obj\Debug\netcoreapp2.0\Integrant.MRR.DAL.dll
+C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.DAL\obj\Debug\netcoreapp2.0\Integrant.MRR.DAL.pdb

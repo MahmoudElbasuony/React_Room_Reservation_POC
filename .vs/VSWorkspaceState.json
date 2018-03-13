@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Server",
-    "\\Server\\Integrant.MRR"
+    "\\Server\\Integrant.MRR",
+    "\\Server\\Integrant.MRR\\Integrant.MRR.WebAPI",
+    "\\Server\\Integrant.MRR\\Integrant.MRR.WebAPI\\Controllers"
   ],
-  "SelectedNode": "\\Server\\Integrant.MRR\\Integrant.MRR.sln",
+  "SelectedNode": "\\Server\\Integrant.MRR\\Integrant.MRR.WebAPI\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

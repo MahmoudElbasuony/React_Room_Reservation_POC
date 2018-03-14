@@ -35,3 +35,6 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+/.vs/mrr-demo/v15
+/.vs
+/Server/Integrant.MRR/.vs/Integrant.MRR/v15

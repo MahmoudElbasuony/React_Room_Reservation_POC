@@ -38,3 +38,12 @@ jspm_packages
 /.vs/mrr-demo/v15
 /.vs
 /Server/Integrant.MRR/.vs/Integrant.MRR/v15
+
+
+
+
+bin
+obj
+
+# Visual Studio 2015/2017 cache/options directory
+*.vs/

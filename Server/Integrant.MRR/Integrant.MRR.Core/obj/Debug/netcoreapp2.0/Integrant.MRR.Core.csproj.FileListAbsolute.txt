@@ -1,9 +1,0 @@
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\bin\Debug\netcoreapp2.0\Integrant.MRR.Core.deps.json
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\bin\Debug\netcoreapp2.0\Integrant.MRR.Core.dll
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\bin\Debug\netcoreapp2.0\Integrant.MRR.Core.pdb
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\obj\Debug\netcoreapp2.0\Integrant.MRR.Core.csprojResolveAssemblyReference.cache
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\obj\Debug\netcoreapp2.0\Integrant.MRR.Core.csproj.CoreCompileInputs.cache
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\obj\Debug\netcoreapp2.0\Integrant.MRR.Core.AssemblyInfoInputs.cache
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\obj\Debug\netcoreapp2.0\Integrant.MRR.Core.AssemblyInfo.cs
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\obj\Debug\netcoreapp2.0\Integrant.MRR.Core.dll
-C:\Users\melbasuony\source\repos\mrr-demo\Server\Integrant.MRR\Integrant.MRR.Core\obj\Debug\netcoreapp2.0\Integrant.MRR.Core.pdb

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import MeetingRoomsActions from "../../redux/actions/meetingRoomActions";
 import "./mettingrooms.component.min.css";
 
 const MappedStateToProps = (state) => {
@@ -12,7 +13,9 @@ const MappedStateToProps = (state) => {
 class MeetingRoomsComponent extends Component {
 
 
-
+    componentDidMount() {
+        this.props.dispatch(MeetingRoomsActions.FetchMeetingRooms());
+    }
 
 
     render() {

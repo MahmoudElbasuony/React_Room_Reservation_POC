@@ -17,6 +17,8 @@ namespace Integrant.MRR.BL
             Context = new MRRContext();
         }
 
+        public async Task<IEnumerable<MeetingRoom>> GetAllMeetingRooms() => await Context.MeetingRoomRepository.GetAll();
+
         public async Task<MeetingRoom> GetMeetingRoomById(string Id) => await Context.MeetingRoomRepository.GetById(Id);
 
         public async Task<MeetingRoom> CreateMeetingRoom(MeetingRoom meetingRoom) => await Context.MeetingRoomRepository.Create(meetingRoom);

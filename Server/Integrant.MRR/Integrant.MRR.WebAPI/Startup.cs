@@ -23,7 +23,12 @@ namespace Integrant.MRR.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions((opts) =>
+            {
+                opts.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+            });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +38,16 @@ namespace Integrant.MRR.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // this will be remoced at production To prevent cors risks
+            app.UseCors((b) =>
+            {
+                b.AllowAnyHeader();
+                b.AllowAnyOrigin();
+                b.AllowAnyMethod();
+                b.AllowCredentials();
+            });
+
 
             app.UseMvc();
         }

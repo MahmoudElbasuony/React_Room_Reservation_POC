@@ -1,28 +1,11 @@
 import { createStore } from "redux";
 import Reducers from "./reducers/reducers";
+import thunk from "redux-thunk";
+import { applyMiddleware } from "redux";
 
-let MockData = {
-    MeetingRooms: [
-        {
-            Code: '123',
-            Floor: 1,
-            MaxSeatsCount: '12',
-            HasSpeakers: false,
-            HasMonitor: true,
-            HasProjector: false
-        },
-        {
-            Code: '456',
-            Floor: 1,
-            MaxSeatsCount: '12',
-            HasSpeakers: false,
-            HasMonitor: true,
-            HasProjector: false
-        }
-    ]
-}
+const Middlewares = applyMiddleware(thunk);
 
-const store = createStore(Reducers, MockData);
+const store = createStore(Reducers, Middlewares);
 
 export default store;
 

@@ -7,9 +7,17 @@ let MockData = {
             Code: '123',
             Floor: 1,
             MaxSeatsCount: '12',
-            HasSpeakers: true,
+            HasSpeakers: false,
             HasMonitor: true,
-            HasProjector: true
+            HasProjector: false
+        },
+        {
+            Code: '456',
+            Floor: 1,
+            MaxSeatsCount: '12',
+            HasSpeakers: false,
+            HasMonitor: true,
+            HasProjector: false
         }
     ]
 }

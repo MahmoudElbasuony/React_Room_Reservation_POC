@@ -29,11 +29,22 @@ class App extends Component {
 
 
           <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+
             <NavLink className="navbar-brand" exact to="/"><b >MRR <i className="fa fa-meetup"></i></b></NavLink>
-            <ul className="nav navbar-nav navbar-collapse">
-              <li className="nav-item"><NavLink exact to="/" className="nav-link"  ><i className="fa fa-home"></i> Home</NavLink></li>
-              <li className="nav-item"><NavLink exact to="/meetingrooms" className="nav-link"  ><i className="fa fa-group"></i> Meeting Rooms</NavLink></li>
-            </ul>
+
+
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#top_navbar">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="top_navbar" className="collapse navbar-collapse text-center">
+              <ul id="top_navbar" className="nav navbar-nav">
+                <li className="nav-item"><NavLink exact to="/" className="nav-link"  ><i className="fa fa-home"></i> Home</NavLink></li>
+                <li className="nav-item"><NavLink exact to="/meetingrooms" className="nav-link"  ><i className="fa fa-group"></i> Meeting Rooms</NavLink></li>
+              </ul>
+            </div>
+
+
 
           </nav>
 

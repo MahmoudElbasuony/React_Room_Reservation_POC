@@ -1,3 +1,7 @@
 .app-body {
   margin-top: 5em;
 }
+
+.app-header .navbar-brand {
+  margin-right: 2em;
+}

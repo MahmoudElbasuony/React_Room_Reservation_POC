@@ -2,19 +2,16 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import "./mettingrooms.component.min.css";
 
-MappedStateToProps = (state) => {
+const  MappedStateToProps = (state) => {
     return {
         MeetingRooms: state.MeetingRooms
     };
 };
 
 
-class MeetingRoomsComponent {
+class MeetingRoomsComponent extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
+   
 
     render() {
         return (

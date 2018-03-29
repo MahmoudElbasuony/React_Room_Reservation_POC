@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./routing/routes";
 import "./styles/style.min.css";
-import HomeComponent from "./components/home/home.component";
+
 
 
 
 const MappedStateToProps = (state) => {
   return {
-      
+
   };
 };
 
@@ -21,25 +24,40 @@ class App extends Component {
 
 
     return (
-      <div className="container">
-
-        <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
-          <a className="navbar-brand" href="javascript:void(0)"><b >MRR <i className="fa fa-meetup"></i></b></a>
-          <ul className="nav navbar-nav navbar-collapse">
-            <li className="nav-item"><a className="nav-link" href="javascript:void(0)">Home</a></li>
-            <li className="nav-item"><a className="nav-link" href="javascript:void(0)">About</a></li>
-          </ul>
-        </nav>
-
-        <div className="row app-body">
-          <div className="col">
+      <Router>
+        <div className="container">
 
 
-            <HomeComponent />
+          <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+            <NavLink className="navbar-brand" exact to="/"><b >MRR <i className="fa fa-meetup"></i></b></NavLink>
+            <ul className="nav navbar-nav navbar-collapse">
+              <li className="nav-item"><NavLink exact to="/" className="nav-link"  ><i className="fa fa-home"></i> Home</NavLink></li>
+              <li className="nav-item"><NavLink exact to="/meetingrooms" className="nav-link"  ><i className="fa fa-group"></i> Meeting Rooms</NavLink></li>
+            </ul>
 
+          </nav>
+
+          <div className="row app-body">
+            <div className="col">
+
+              <Routes />
+
+            </div>
           </div>
+
+
+          <footer className="fixed-bottom">
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+              <ul className="nav navbar-nav">
+
+                <li className="nav-item"><NavLink exact to="/about" className="nav-link"  ><i className="fa fa-group"></i> About</NavLink></li>
+              </ul>
+
+            </nav>
+          </footer>
+
         </div>
-      </div>
+      </Router>
     );
   }
 }

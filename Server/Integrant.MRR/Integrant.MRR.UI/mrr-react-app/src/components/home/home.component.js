@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./home.component.min.css";
 
@@ -12,16 +13,13 @@ const MappedStateToProps = (state) => {
 
 class HomeComponent extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
+ 
 
     render() {
         return (
             <div className="jumbotron">
                 <h2> Welcome to MRR System </h2>
-                <button className="btn btn-link border-dark" type="button"  > Learn more</button>
+                <NavLink exact to="/about" className="btn btn-link border-dark"  >Learn more</NavLink>
             </div>
         );
     }

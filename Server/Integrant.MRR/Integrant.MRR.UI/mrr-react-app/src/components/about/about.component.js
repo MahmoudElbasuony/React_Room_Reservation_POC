@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import "./meetingroom.component.min.css";
+import "./about.component.min.css";
+
 
 const MappedStateToProps = (state) => {
-    return {};
+    return {
+
+    };
 };
 
-class MeetingRoomComponent extends Component {
 
-   
+class AboutComponent extends Component {
 
+ 
 
     render() {
         return (
             <div className="jumbotron">
-                <h2> Welcome to Meeting Room X </h2>
+                <h2> MRR System </h2>
             </div>
         );
     }
@@ -23,4 +26,4 @@ class MeetingRoomComponent extends Component {
 
 
 
-export default connect(MappedStateToProps)(MeetingRoomComponent);
+export default connect(MappedStateToProps)(AboutComponent);

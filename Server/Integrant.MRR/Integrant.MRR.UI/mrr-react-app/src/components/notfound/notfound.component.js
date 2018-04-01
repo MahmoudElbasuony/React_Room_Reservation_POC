@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 import "./notfound.component.min.css";
 
 
-const MappedStateToProps = (state) => {
-    return {
-        MeetingRooms: state.MeetingRooms
-    };
-};
-
+ 
 
 class NotFoundComponent extends Component {
 
@@ -27,4 +21,4 @@ class NotFoundComponent extends Component {
 
 
 
-export default connect(MappedStateToProps)(NotFoundComponent);
+export default (NotFoundComponent);

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Integrant.MRR.DAL.Models
 {
-    public class MeetingRoom : BaseModel 
+    public class MeetingRoom : BaseModel
     {
-        public string Code { get; set; } = StringUtil.GetRandomCode();
+        public string Code { get; set; }
         public int Floor { get; set; }
         public int MaxSeatsCount { get; set; }
         public bool HasSpeakers { get; set; }

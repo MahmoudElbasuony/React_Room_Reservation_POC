@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
 import "./home.component.min.css";
 
 
-const MappedStateToProps = (state) => {
-    return {
-        
-    };
-};
+ 
 
 
 class HomeComponent extends Component {
 
- 
+
 
     render() {
         return (
@@ -28,4 +23,4 @@ class HomeComponent extends Component {
 
 
 
-export default connect(MappedStateToProps)(HomeComponent);
+export default (HomeComponent);

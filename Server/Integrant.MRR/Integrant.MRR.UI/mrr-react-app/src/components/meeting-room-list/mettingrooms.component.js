@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import MeetingRoomsActions from "../../redux/actions/meetingRoomActions";
 import "./mettingrooms.component.min.css";
+import swal from "sweetalert2/dist/sweetalert2.all.min";
+import alertify from "alertify.js/dist/js/alertify";
 
 const MappedStateToProps = (state) => {
     return {
@@ -13,8 +15,44 @@ const MappedStateToProps = (state) => {
 class MeetingRoomsComponent extends Component {
 
 
+
+    constructor() {
+
+        super();
+
+        this.DeleteMeetingRoom = this.DeleteMeetingRoom.bind(this);
+
+        this.ViewReservations = this.ViewReservations.bind(this);
+
+    }
+
     componentDidMount() {
         this.props.dispatch(MeetingRoomsActions.FetchMeetingRooms());
+    }
+
+
+    DeleteMeetingRoom(meetingRoom) {
+
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                alertify.success("Success log message");
+            }
+        });
+
+
+    }
+
+
+    ViewReservations(meetingRoom) {
+
     }
 
 
@@ -35,7 +73,7 @@ class MeetingRoomsComponent extends Component {
 
                     </div>
                     <div className="card-body">
-                        {this.RenderMeetingRooms(this.props.MeetingRooms)}
+                        { this.RenderMeetingRooms(this.props.MeetingRooms) }
                     </div>
                     <div className="card-footer">
                         <button className="btn btn-sm btn-warning pull-right">Add Room <i className="fa fa-plus"></i></button>
@@ -48,16 +86,17 @@ class MeetingRoomsComponent extends Component {
 
     RenderMeetingRooms(MeetingRooms) {
         return (
-            <div className="table-responsive-sm">
+            <div className="table-responsive">
                 <table className="table table-hover table-dark table-striped ">
                     <thead className="text-center">
                         <tr>
-
+                            <td>Code</td>
                             <td>Floor</td>
                             <td>MaxSeatsCount</td>
                             <td>HasSpeakers</td>
                             <td>HasMonitor</td>
                             <td>HasProjector</td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,7 +110,10 @@ class MeetingRoomsComponent extends Component {
     RenderMeetingRoom(meetingRoom) {
 
         return (
-            <tr className="text-center" key={meetingRoom.Code} >
+            <tr className="text-center" key={meetingRoom.ID} >
+                <td>
+                    {meetingRoom.Code}
+                </td>
                 <td>
                     {meetingRoom.Floor}
                 </td>
@@ -87,6 +129,13 @@ class MeetingRoomsComponent extends Component {
                 <td>
                     <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasProjector} onChange={() => { }} />
                 </td>
+                <td>
+                    <div className="btn-group btn-group-sm">
+                        <a className="btn btn-info" onClick={this.ViewReservations} title="View Reservations" >View <i className="fa fa-eye"></i></a>
+                        <a className="btn btn-danger" onClick={this.DeleteMeetingRoom} title="Delete">Delete <i className="fa fa-remove"></i></a>
+                    </div>
+                </td>
+
             </tr>
         );
     }

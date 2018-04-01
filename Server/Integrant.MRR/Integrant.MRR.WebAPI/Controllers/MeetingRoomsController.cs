@@ -20,7 +20,6 @@ namespace Integrant.MRR.WebAPI.Controllers
         {
             try
             {
-                 
                 return Json(await meetingRoomManager.GetAllMeetingRooms() );
             }
             catch (Exception e)

@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 import "./about.component.min.css";
 
-
-const MappedStateToProps = (state) => {
-    return {
-
-    };
-};
-
+ 
 
 class AboutComponent extends Component {
 
@@ -26,4 +19,4 @@ class AboutComponent extends Component {
 
 
 
-export default connect(MappedStateToProps)(AboutComponent);
+export default  (AboutComponent);

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import MeetingRoomsActions from "../../redux/actions/meetingRoomActions";
 import "./mettingrooms.component.min.css";
 import swal from "sweetalert2/dist/sweetalert2.all.min";
-import alertify from "alertify.js/dist/js/alertify";
+
 
 const MappedStateToProps = (state) => {
     return {
-        MeetingRooms: state.MeetingRooms
+        MeetingRooms: state.MeetingRooms.MeetingRooms,
+        CreatedMeetingRoom: state.MeetingRooms.CreatedMeetingRoom,
+        ItemsFlowGrid: state.MeetingRooms.ItemsFlowGrid
     };
 };
 
@@ -20,14 +23,18 @@ class MeetingRoomsComponent extends Component {
 
         super();
 
-        this.DeleteMeetingRoom = this.DeleteMeetingRoom.bind(this);
-
-        this.ViewReservations = this.ViewReservations.bind(this);
-
+        this.SwitchItemsFlow = this.SwitchItemsFlow.bind(this);
     }
 
+    SwitchItemsFlow() {
+        this.props.dispatch(MeetingRoomsActions.SwitchItemsFlow())
+    }
+
+
     componentDidMount() {
+
         this.props.dispatch(MeetingRoomsActions.FetchMeetingRooms());
+
     }
 
 
@@ -41,22 +48,26 @@ class MeetingRoomsComponent extends Component {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
+
         }).then((result) => {
+
             if (result.value) {
-                alertify.success("Success log message");
+
+                this.props.dispatch(MeetingRoomsActions.DeleteMeetingRoom(meetingRoom.ID));
+
             }
+
         });
 
 
     }
 
 
-    ViewReservations(meetingRoom) {
-
-    }
 
 
     render() {
+
+
         return (
             <div className="jumbotron">
                 <div className="card bg-light">
@@ -66,25 +77,91 @@ class MeetingRoomsComponent extends Component {
                                 <h5 className="card-title"><i className="fa fa-group"></i> Meeting Rooms </h5>
                             </div>
                             <div className="col">
+                                <button type="button" onClick={this.SwitchItemsFlow} title={this.props.ItemsFlowGrid ? 'View in table' : 'View in grid'} className="btn btn-sm btn-primary pull-right meeting-rooms-items-flow">
+                                    {
+                                        (() => {
 
+                                            if (this.props.ItemsFlowGrid)
+                                                return (<i className="fa fa-table"></i>);
+                                            else
+                                                return (<i className="fa fa-delicious"></i>);
+
+                                        })()
+                                    }
+                                </button>
+                                <Link to="/meetingrooms/new" className="btn btn-sm btn-warning pull-right">Add Meeting Room <i className="fa fa-plus"></i></Link>
                             </div>
                         </div>
 
 
                     </div>
                     <div className="card-body">
-                        { this.RenderMeetingRooms(this.props.MeetingRooms) }
-                    </div>
-                    <div className="card-footer">
-                        <button className="btn btn-sm btn-warning pull-right">Add Room <i className="fa fa-plus"></i></button>
+
+                        <div className="row">
+                            {
+                                (() => (this.props.ItemsFlowGrid ?
+                                    this.RenderMeetingRoomsInGrid(this.props.MeetingRooms) :
+                                    this.RenderMeetingRoomsInTable(this.props.MeetingRooms))
+                                )()
+                            }
+                        </div>
+
                     </div>
                 </div>
             </div>
         );
     }
 
+    RenderMeetingRoomsInGrid(MeetingRooms) {
 
-    RenderMeetingRooms(MeetingRooms) {
+        return MeetingRooms.map((meetingRoom) =>
+            (
+
+                <div key={meetingRoom.ID} className="card bg-dark text-light grid-meeting-room">
+                    <div className="card-header">
+                        <h5 className="card-title"><i className="fa fa-group"></i> Meeting Room : {meetingRoom.Code} </h5>
+                    </div>
+                    <div className="card-body">
+                        <div className="row">
+                            <div className="col-sm-6">
+
+                                <div>Floor :</div>
+                                <div>Max Seats Count :</div>
+                                <div>Has Speakers :</div>
+                                <div>Has Monitor :</div>
+                                <div>Has Projector :</div>
+
+                            </div>
+                            <div className="col-sm-auto">
+                                <div>
+                                    {meetingRoom.Floor}
+                                </div>
+                                <div>
+                                    {meetingRoom.MaxSeatsCount}
+                                </div>
+                                <div >
+                                    <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasSpeakers} onChange={() => { }} />
+                                </div>
+                                <div>
+                                    <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasMonitor} onChange={() => { }} />
+                                </div>
+                                <div>
+                                    <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasProjector} onChange={() => { }} />
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="card-footer">
+                        {this.MeetingRoomControls(meetingRoom)}
+                    </div>
+                </div>
+            )
+        );
+    }
+
+    RenderMeetingRoomsInTable(MeetingRooms) {
         return (
             <div className="table-responsive">
                 <table className="table table-hover table-dark table-striped ">
@@ -100,14 +177,29 @@ class MeetingRoomsComponent extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {MeetingRooms.map((meetingRoom) => this.RenderMeetingRoom(meetingRoom))}
+                        {
+                            (() => {
+
+                                if (MeetingRooms.length > 0)
+                                    return MeetingRooms.map((meetingRoom) => this.RenderMeetingRoomInTable(meetingRoom));
+
+                                return (
+                                    <tr className="text-center bg-secondary">
+                                        <td colSpan="7">No meeting rooms available</td>
+                                    </tr>
+                                );
+
+                            })()
+
+
+                        }
                     </tbody>
                 </table>
             </div>
         );
     }
 
-    RenderMeetingRoom(meetingRoom) {
+    RenderMeetingRoomInTable(meetingRoom) {
 
         return (
             <tr className="text-center" key={meetingRoom.ID} >
@@ -130,13 +222,19 @@ class MeetingRoomsComponent extends Component {
                     <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasProjector} onChange={() => { }} />
                 </td>
                 <td>
-                    <div className="btn-group btn-group-sm">
-                        <a className="btn btn-info" onClick={this.ViewReservations} title="View Reservations" >View <i className="fa fa-eye"></i></a>
-                        <a className="btn btn-danger" onClick={this.DeleteMeetingRoom} title="Delete">Delete <i className="fa fa-remove"></i></a>
-                    </div>
+                    {this.MeetingRoomControls(meetingRoom)}
                 </td>
 
             </tr>
+        );
+    }
+
+    MeetingRoomControls(meetingRoom) {
+        return (
+            <div className="btn-group btn-group-sm ">
+                <Link to="" className="btn btn-info" onClick={() => this.ViewReservations(meetingRoom)} title="View Reservations" >View <i className="fa fa-eye"></i></Link>
+                <a className="btn btn-danger" onClick={() => this.DeleteMeetingRoom(meetingRoom)} title="Delete">Delete <i className="fa fa-remove"></i></a>
+            </div>
         );
     }
 }

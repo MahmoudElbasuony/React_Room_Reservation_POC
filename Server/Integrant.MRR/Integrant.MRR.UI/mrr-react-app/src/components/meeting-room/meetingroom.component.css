@@ -1,0 +1,7 @@
+.mroom_ckbx_top {
+  margin-top: 3em;
+}
+
+.mroom_ckbx_top > input, .mroom_ckbx_top label {
+  cursor: pointer;
+}

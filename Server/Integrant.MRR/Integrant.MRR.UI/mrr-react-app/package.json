@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "alertify.js": "^1.0.12",
     "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
     "font-awesome": "^4.7.0",

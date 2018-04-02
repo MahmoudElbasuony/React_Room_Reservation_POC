@@ -1,0 +1,10 @@
+.grid-meeting-room {
+  flex-wrap: wrap;
+  flex-grow: 1;
+  margin: 1em;
+  max-height: 30em;
+}
+
+.meeting-rooms-items-flow {
+  margin-left: 1em;
+}

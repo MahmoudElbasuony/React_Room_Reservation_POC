@@ -21,7 +21,20 @@ namespace Integrant.MRR.BL
 
         public async Task<MeetingRoom> GetMeetingRoomById(string Id) => await Context.MeetingRoomRepository.GetById(Id);
 
-        public async Task<MeetingRoom> CreateMeetingRoom(MeetingRoom meetingRoom) => await Context.MeetingRoomRepository.Create(meetingRoom);
+        public async Task<MeetingRoom> CreateMeetingRoom(MeetingRoom meetingRoom)
+        {
+
+ 
+
+            var matched_rooms = await Context.MeetingRoomRepository.GetOn((mr) => mr.Code == meetingRoom.Code);
+
+            if (matched_rooms.Count() > 0)
+            {
+                throw new Exception("Multi meeting room with the same code");
+            }
+
+            return await Context.MeetingRoomRepository.Create(meetingRoom);
+        }
 
         public async Task<MeetingRoom> DeleteMeetingRoom(MeetingRoom meetingRoom) => await Context.MeetingRoomRepository.Delete(meetingRoom);
 

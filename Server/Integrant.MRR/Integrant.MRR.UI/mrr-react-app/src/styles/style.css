@@ -2,10 +2,23 @@
   margin-top: 5em;
 }
 
+.app {
+  min-height: 86vh;
+}
+
 .app-header .navbar-brand {
   margin-right: 2em;
 }
 
 .alertify-logs {
   z-index: 1031 !important;
+}
+
+.react-datetime-picker__calendar,
+.react-datetime-picker__clock {
+  z-index: 10;
+}
+
+.react-datetime-picker__button {
+  border: none;
 }

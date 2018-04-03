@@ -66,6 +66,30 @@ namespace Integrant.MRR.DAL.Repositories
         public async Task<IEnumerable<T>> GetOn(Expression<Func<T, bool>> expression)
             => await (await Collection.FindAsync<T>(expression)).ToListAsync();
 
+        public async Task<T> Update(T Entity)
+        {
+             
+            if (string.IsNullOrWhiteSpace(Entity.ID))
+                throw new Exception("Entity Id Missed");
 
+            var fields_dictionary = Entity.ToBsonDocument().ToDictionary();
+
+            UpdateDefinition<T> update_query = null;
+
+            foreach (var entry in fields_dictionary)
+            {
+                if (update_query == null)
+                    update_query = UpdateBuilder.Set(entry.Key, fields_dictionary[entry.Key]);
+                else
+                    update_query = UpdateBuilder.Combine(update_query, UpdateBuilder.Set(entry.Key, fields_dictionary[entry.Key]));
+            }
+
+            var result = await Collection.UpdateOneAsync(e => e.ID == Entity.ID, update_query);
+
+            if (result.ModifiedCount == 0)
+                throw new Exception("Update faild");
+
+            else return Entity;
+        }
     }
 }

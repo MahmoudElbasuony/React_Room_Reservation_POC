@@ -36,7 +36,14 @@ namespace Integrant.MRR.BL
             return await Context.MeetingRoomRepository.Create(meetingRoom);
         }
 
-        public async Task<MeetingRoom> DeleteMeetingRoom(MeetingRoom meetingRoom) => await Context.MeetingRoomRepository.Delete(meetingRoom);
+        public async Task<MeetingRoom> DeleteMeetingRoom(MeetingRoom meetingRoom)
+        {
+            await Context.MeetingRoomRepository.Delete(meetingRoom);
+
+            await Context.ReservationRepository.DeleteAll(await Context.ReservationRepository.GetOn(rs => rs.MeetingRoomCode == meetingRoom.Code));
+
+            return meetingRoom;
+        }
 
 
     }

@@ -4,13 +4,13 @@ import "./meetingroom.component.min.css";
 import Actions from '../../redux/actions/meetingRoomActions';
 import meetingRoomActions from '../../redux/actions/meetingRoomActions';
 import swal from "sweetalert2";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const MappedStateToProps = (state) => {
     return {
         IsLoading: state.MeetingRooms.IsLoading,
         CurrentMeetingRoom: state.MeetingRooms.CurrentMeetingRoom,
-        CreatedMeetingRoom: state.MeetingRooms.CreatedMeetingRoom
+        IsMeetingRoomCreated: state.MeetingRooms.IsMeetingRoomCreated
     };
 };
 
@@ -91,9 +91,7 @@ class MeetingRoomComponent extends Component {
 
     render() {
 
-        if (this.props.CreatedMeetingRoom) {
-            return <Redirect to="/meetingrooms" />
-        }
+        
 
         return (
             <fieldset disabled={this.props.IsLoading}>
@@ -145,7 +143,7 @@ class MeetingRoomComponent extends Component {
 
                     <div className="card-footer">
                         {
-                            this.RenderMeetingRoomActions(this.props.MeetingRoom)
+                            this.RenderMeetingRoomActions(this.props.CurrentMeetingRoom)
                         }
                     </div>
 
@@ -155,9 +153,9 @@ class MeetingRoomComponent extends Component {
     }
 
     RenderMeetingRoomActions(meetingRoom) {
-
-        if (this.props.CurrentMeetingRoom.ID) {
-            return <button className="btn btn-sm btn-warning pull-right">Reserve  <i className="fa fa-bookmark"></i></button>
+ 
+        if (meetingRoom.ID) {
+            return <Link to={`/reservations/${meetingRoom.Code}/new`} className="btn btn-sm btn-warning pull-right">Reserve  <i className="fa fa-bookmark"></i></Link>
         }
         else {
             return (<button className="btn btn-sm btn-success pull-right" onClick={this.SaveMeetingRoom}>

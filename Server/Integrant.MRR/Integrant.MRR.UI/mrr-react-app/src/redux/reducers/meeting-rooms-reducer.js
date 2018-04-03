@@ -13,12 +13,12 @@ const InitialMeetingRoomState = {
     },
     ItemsFlowGrid: true,
     IsLoading: false,
-    CreatedMeetingRoom: false
+    IsMeetingRoomCreated: false
 };
 
 
 export default function MeetingRoomsReducer(state = InitialMeetingRoomState, action) {
-
+ 
 
     switch (action.type) {
 
@@ -31,14 +31,14 @@ export default function MeetingRoomsReducer(state = InitialMeetingRoomState, act
         case MeetingRoomsActions.DestroyCurrentMeetingRoom:
             state = {
                 ...state, MeetingRooms: [...state.MeetingRooms, action.CurrentMeetingRoom],
-                CurrentMeetingRoom: action.CurrentMeetingRoom, IsLoading: false, CreatedMeetingRoom: false
+                CurrentMeetingRoom: action.CurrentMeetingRoom, IsLoading: false, IsMeetingRoomCreated: false
             }
             break;
 
 
 
-        case MeetingRoomsActions.CreatedMeetingRoom:
-            state = { ...state, CreatedMeetingRoom: true }
+        case MeetingRoomsActions.IsMeetingRoomCreated:
+            state = { ...state, IsMeetingRoomCreated: true }
             break;
 
         case MeetingRoomsActions.DeletedMeetingRoom:

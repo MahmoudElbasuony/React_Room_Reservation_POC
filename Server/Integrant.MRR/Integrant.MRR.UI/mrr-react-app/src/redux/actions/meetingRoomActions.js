@@ -18,7 +18,7 @@ export const MeetingRoomsActions = {
     DeletedMeetingRoom: "DeletedMeetingRoom",
     // Separted flag similar to Create Action but used 
     // in different situation Indicated that the meeting room created successfully 
-    CreatedMeetingRoom: "CreatedMeetingRoom",
+    IsMeetingRoomCreated: "IsMeetingRoomCreated",
 
     // switch meeting rooms view from grid view to table view and vice versa
     SwitchItemsFlow: "SwitchItemsFlow"
@@ -115,7 +115,7 @@ export default {
                 swal("Success", "Meeting room created successfully", "success").then(() => {
 
                     dispatch({
-                        type: MeetingRoomsActions.CreatedMeetingRoom
+                        type: MeetingRoomsActions.IsMeetingRoomCreated
                     });
 
                 });

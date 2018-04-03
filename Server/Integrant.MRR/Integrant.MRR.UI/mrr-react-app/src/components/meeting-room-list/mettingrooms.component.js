@@ -114,51 +114,53 @@ class MeetingRoomsComponent extends Component {
 
     RenderMeetingRoomsInGrid(MeetingRooms) {
 
-        return MeetingRooms.map((meetingRoom) =>
+        return MeetingRooms.length === 0 ? <div className="text-center col text-secondary">   No Meeting Rooms </div> :
+
+            MeetingRooms.map((meetingRoom) =>
             (
 
-                <div key={meetingRoom.ID} className="card bg-dark text-light grid-meeting-room">
-                    <div className="card-header">
-                        <h5 className="card-title"><i className="fa fa-group"></i> Meeting Room : {meetingRoom.Code} </h5>
-                    </div>
-                    <div className="card-body">
-                        <div className="row">
-                            <div className="col-sm-6">
-
-                                <div>Floor :</div>
-                                <div>Max Seats Count :</div>
-                                <div>Has Speakers :</div>
-                                <div>Has Monitor :</div>
-                                <div>Has Projector :</div>
-
-                            </div>
-                            <div className="col-sm-auto">
-                                <div>
-                                    {meetingRoom.Floor}
-                                </div>
-                                <div>
-                                    {meetingRoom.MaxSeatsCount}
-                                </div>
-                                <div >
-                                    <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasSpeakers} onChange={() => { }} />
-                                </div>
-                                <div>
-                                    <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasMonitor} onChange={() => { }} />
-                                </div>
-                                <div>
-                                    <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasProjector} onChange={() => { }} />
-                                </div>
-
-                            </div>
+                    <div key={meetingRoom.ID} className="card bg-dark text-light grid-meeting-room">
+                        <div className="card-header">
+                            <h5 className="card-title"><i className="fa fa-group"></i> Meeting Room : {meetingRoom.Code} </h5>
                         </div>
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-sm-7">
 
+                                    <div>Floor :</div>
+                                    <div>Max Seats Count :</div>
+                                    <div>Has Speakers :</div>
+                                    <div>Has Monitor :</div>
+                                    <div>Has Projector :</div>
+
+                                </div>
+                                <div className="col-sm-auto">
+                                    <div>
+                                        {meetingRoom.Floor}
+                                    </div>
+                                    <div>
+                                        {meetingRoom.MaxSeatsCount}
+                                    </div>
+                                    <div >
+                                        <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasSpeakers} onChange={() => { }} />
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasMonitor} onChange={() => { }} />
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" className="form-check-inline" checked={meetingRoom.HasProjector} onChange={() => { }} />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="card-footer">
+                            {this.MeetingRoomControls(meetingRoom)}
+                        </div>
                     </div>
-                    <div className="card-footer">
-                        {this.MeetingRoomControls(meetingRoom)}
-                    </div>
-                </div>
-            )
-        );
+                )
+            );
     }
 
     RenderMeetingRoomsInTable(MeetingRooms) {
@@ -232,7 +234,7 @@ class MeetingRoomsComponent extends Component {
     MeetingRoomControls(meetingRoom) {
         return (
             <div className="btn-group btn-group-sm ">
-                <Link to="" className="btn btn-info" onClick={() => this.ViewReservations(meetingRoom)} title="View Reservations" >View <i className="fa fa-eye"></i></Link>
+                <Link to={`/reservations/${meetingRoom.Code}`} className="btn btn-info" title="View Reservations" >View <i className="fa fa-eye"></i></Link>
                 <a className="btn btn-danger" onClick={() => this.DeleteMeetingRoom(meetingRoom)} title="Delete">Delete <i className="fa fa-remove"></i></a>
             </div>
         );

@@ -13,9 +13,10 @@ namespace Integrant.MRR.Core.Interfaces.Repositories
         Task<T> GetById(string Id);
         Task<IEnumerable<T>> GetOn(Expression<Func<T,bool>>  expression);
         Task<IEnumerable<T>> GetAll();
-
         Task<T> Delete(T Entity);
         Task<IEnumerable<T>> DeleteAll(IEnumerable<T> Entities);
+        Task<T> Update(T Entity);
+
 
     }
 }

@@ -25,39 +25,45 @@ class App extends Component {
 
     return (
       <Router>
-        <div className="container">
+        <div className="aap_container">
 
 
-          <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
-
-            <NavLink className="navbar-brand" exact to="/"><b >MRR <i className="fa fa-meetup"></i></b></NavLink>
+          <div className="container app">
 
 
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#top_navbar">
-              <span className="navbar-toggler-icon"></span>
-            </button>
+            <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
 
-            <div id="top_navbar" className="collapse navbar-collapse text-center">
-              <ul id="top_navbar" className="nav navbar-nav">
-                <li className="nav-item"><NavLink exact to="/" className="nav-link"  ><i className="fa fa-home"></i> Home</NavLink></li>
-                <li className="nav-item"><NavLink exact to="/meetingrooms" className="nav-link"  ><i className="fa fa-group"></i> Meeting Rooms</NavLink></li>
-              </ul>
+              <NavLink className="navbar-brand" exact to="/"><b >MRR <i className="fa fa-meetup"></i></b></NavLink>
+
+
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#top_navbar">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+
+              <div id="top_navbar" className="collapse navbar-collapse text-center">
+                <ul id="top_navbar" className="nav navbar-nav">
+                  <li className="nav-item"><NavLink exact to="/" className="nav-link"  ><i className="fa fa-home"></i> Home</NavLink></li>
+                  <li className="nav-item"><NavLink exact to="/meetingrooms" className="nav-link"  ><i className="fa fa-group"></i> Meeting Rooms</NavLink></li>
+                </ul>
+              </div>
+
+
+
+            </nav>
+
+            <div className="row app-body">
+              <div className="col">
+
+                <Routes />
+
+              </div>
             </div>
 
 
 
-          </nav>
-
-          <div className="row app-body">
-            <div className="col">
-
-              <Routes />
-
-            </div>
           </div>
 
-
-          <footer className="fixed-bottom">
+          <footer >
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
               <ul className="nav navbar-nav">
 
@@ -66,7 +72,6 @@ class App extends Component {
 
             </nav>
           </footer>
-
         </div>
       </Router>
     );
